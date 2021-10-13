@@ -1,5 +1,5 @@
 import unittest
-from cans import Cola
+from cans import Cola, RootBeer
 from customer import Customer
 from coins import Quarter, Dime, Nickel, Penny
 from soda_machine import SodaMachine
@@ -47,6 +47,54 @@ class TestSodaMachine(unittest.TestCase):
         self.soda_machine_one = SodaMachine()
         returned_coin = self.soda_machine_one.get_coin_from_register("Peso")
         self.assertIsNone(returned_coin, None)
+
+    def test_register_has_quarter(self):
+        """Tests if register has quarters"""
+        self.soda_machine_one = SodaMachine()
+        returned_coin = self.soda_machine_one.register_has_coin('Quarter')
+        self.assertTrue(returned_coin)
+
+    def test_register_has_dime(self):
+        """Tests if register has dimes"""
+        self.soda_machine_one = SodaMachine()
+        returned_coin = self.soda_machine_one.register_has_coin('Dime')
+        self.assertTrue(returned_coin)
+
+    def test_register_has_nickel(self):
+        """Tests if register has nickels"""
+        self.soda_machine_one = SodaMachine()
+        returned_coin = self.soda_machine_one.register_has_coin('Nickel')
+        self.assertTrue(returned_coin)
+
+    def test_register_has_penny(self):
+        """Tests if register has pennies"""
+        self.soda_machine_one = SodaMachine()
+        returned_coin = self.soda_machine_one.register_has_coin('Penny')
+        self.assertTrue(returned_coin)
+
+    def test_register_invalid_coin(self):
+        """ Test if invalid coin returns false """
+        self.soda_machine_one = SodaMachine()
+        returned_coin = self.soda_machine_one.get_coin_from_register("Peso")
+        self.assertFalse(returned_coin)
+
+    def test_determine_change_value_a(self):
+        self.soda_machine_one = SodaMachine()
+        changed_value = self.soda_machine_one.determine_change_value(1.00, .50)
+        self.assertGreater(changed_value, 0)
+        print(changed_value)
+
+    def test_determine_change_value_b(self):
+        self.soda_machine_one = SodaMachine()
+        changed_value = self.soda_machine_one.determine_change_value(1.00, 1.50)
+        self.assertLess(changed_value, 0)
+        print(changed_value)
+
+    def test_determine_change_value_c(self):
+        self.soda_machine_one = SodaMachine()
+        changed_value = self.soda_machine_one.determine_change_value(1.00, 1.00)
+        self.assertEqual(changed_value, 0)
+        print(changed_value)
 
 if __name__ == "__main__":
     unittest.main()
