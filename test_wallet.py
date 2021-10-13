@@ -3,6 +3,7 @@ from coins import Quarter, Dime, Nickel, Penny
 from wallet import Wallet
 
 class TestWallet(unittest.TestCase):
+    """Tests the length of money lists to ensure it has a length of 88"""
     def setUp(self):
         self.my_wallet = Wallet()
 
