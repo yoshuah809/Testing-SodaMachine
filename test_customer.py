@@ -1,4 +1,5 @@
 import unittest
+from cans import Cola
 from customer import Customer
 from coins import Quarter, Dime, Nickel, Penny
 
@@ -32,7 +33,7 @@ class TestGetWalletCoin(unittest.TestCase):
     def test_no_string(self):
         """Passing in an empty string returns not valid."""
         returned_coin = self.customer.get_wallet_coin(' ')
-        self.assertIsNone(returned_coin.value, .05)
+        self.assertIsNone(returned_coin, None)
 
 
 
@@ -55,8 +56,31 @@ class TestAddCoinsToWallet(unittest.TestCase):
         self.customer.add_coins_to_wallet([])
         self.assertEqual(len(self.customer.wallet.money), array_size)    
         
-         
 
+class TestAddCanToBackpack(unittest.TestCase):
+    """Tests if Cola object is passed and testing the length of the customers backpack's purchased_cans list went up by 1"""
+
+    def setUp(self):
+        self.customer = Customer()
+
+    def test_backpack_one(self):
+        backpack = len(self.customer.backpack.purchased_cans)
+        self.customer.add_can_to_backpack(Cola)
+        self.assertEqual(len(self.customer.backpack.purchased_cans), backpack + 1)
+        print(len(self.customer.backpack.purchased_cans))
+
+
+    def test_backpack_two(self):
+        backpack = len(self.customer.backpack.purchased_cans)
+        self.customer.add_can_to_backpack(Cola)
+        self.assertEqual(len(self.customer.backpack.purchased_cans), backpack + 1)
+        print(len(self.customer.backpack.purchased_cans))
+
+    def test_backpack_three(self):
+        backpack = len(self.customer.backpack.purchased_cans)
+        self.customer.add_can_to_backpack(Cola)
+        self.assertEqual(len(self.customer.backpack.purchased_cans), backpack + 1)
+        print(len(self.customer.backpack.purchased_cans))
 
 
 if __name__ == "__main__":
