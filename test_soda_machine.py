@@ -96,5 +96,26 @@ class TestSodaMachine(unittest.TestCase):
         self.assertEqual(changed_value, 0)
         print(changed_value)
 
+    def test_calculate_coin_value(self):
+        self.soda_machine_one = SodaMachine()
+        self.quarter = Quarter()
+        self.dime = Dime()
+        self.penny = Penny()
+        self.nickle = Nickel()
+
+        self.money_list = []
+        self.money_list.append(self.quarter)
+        self.money_list.append(self.dime)
+        self.money_list.append(self.penny)
+        self.money_list.append(self.nickle)
+
+        self.assertEqual(self.soda_machine_one.calculate_coin_value(self.money_list), .41)
+
+    def test_calculate_coin_value_with_zero(self):
+        self.soda_machine_one = SodaMachine()
+        self.money_list = []
+        self.assertEqual(self.soda_machine_one.calculate_coin_value(self.money_list), 0)
+
+
 if __name__ == "__main__":
     unittest.main()
