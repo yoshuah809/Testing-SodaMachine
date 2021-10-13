@@ -47,7 +47,7 @@ class TestAddCoinsToWallet(unittest.TestCase):
         """"Pass in a list of 3 coins, test that the len of the customer’s wallet’s money list went up by
             3"""
         array_size =  len(self.customer.wallet.money)  
-        self.customer.add_coins_to_wallet([0.1, 0.1, 0.1])
+        self.customer.add_coins_to_wallet([Penny(), Penny(), Penny()])
         self.assertEqual(len(self.customer.wallet.money), array_size + 3)
 
     def test_empty_wallet_add_coinst_to_wallet(self):  
