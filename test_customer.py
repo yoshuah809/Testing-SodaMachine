@@ -65,20 +65,20 @@ class TestAddCanToBackpack(unittest.TestCase):
 
     def test_backpack_one(self):
         backpack = len(self.customer.backpack.purchased_cans)
-        self.customer.add_can_to_backpack(Cola)
+        self.customer.add_can_to_backpack(Cola())
         self.assertEqual(len(self.customer.backpack.purchased_cans), backpack + 1)
         print(len(self.customer.backpack.purchased_cans))
 
 
     def test_backpack_two(self):
         backpack = len(self.customer.backpack.purchased_cans)
-        self.customer.add_can_to_backpack(Cola)
+        self.customer.add_can_to_backpack(Cola())
         self.assertEqual(len(self.customer.backpack.purchased_cans), backpack + 1)
         print(len(self.customer.backpack.purchased_cans))
 
     def test_backpack_three(self):
         backpack = len(self.customer.backpack.purchased_cans)
-        self.customer.add_can_to_backpack(Cola)
+        self.customer.add_can_to_backpack(Cola())
         self.assertEqual(len(self.customer.backpack.purchased_cans), backpack + 1)
         print(len(self.customer.backpack.purchased_cans))
 
