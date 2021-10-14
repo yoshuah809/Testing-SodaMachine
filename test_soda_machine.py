@@ -44,22 +44,26 @@ class TestSodaMachine(unittest.TestCase):
 
     def test_register_has_quarter(self):
         """Tests if register has quarters"""
-        returned_coin = self.my_soda_machine.register_has_coin('Quarter')
+        self.quarter = Quarter()
+        returned_coin = self.my_soda_machine.register_has_coin(self.quarter.name)
         self.assertTrue(returned_coin)
 
     def test_register_has_dime(self):
         """Tests if register has dimes"""
-        returned_coin = self.my_soda_machine.register_has_coin('Dime')
+        self.dime = Dime()
+        returned_coin = self.my_soda_machine.register_has_coin(self.dime.name)
         self.assertTrue(returned_coin)
 
     def test_register_has_nickel(self):
         """Tests if register has nickels"""
-        returned_coin = self.my_soda_machine.register_has_coin('Nickel')
+        self.nickel = Nickel()
+        returned_coin = self.my_soda_machine.register_has_coin(self.nickel.name)
         self.assertTrue(returned_coin)
 
     def test_register_has_penny(self):
         """Tests if register has pennies"""
-        returned_coin = self.my_soda_machine.register_has_coin('Penny')
+        self.penny = Penny()
+        returned_coin = self.my_soda_machine.register_has_coin(self.penny.name)
         self.assertTrue(returned_coin)
 
     def test_register_invalid_coin(self):
@@ -107,9 +111,12 @@ class TestSodaMachine(unittest.TestCase):
 
     def test_get_inventory_soda_a(self):
         """Test to make sure the soda name entered is returned correctly"""
-        self.soda_inventory_one = self.my_soda_machine.get_inventory_soda('Cola')
-        self.soda_inventory_two = self.my_soda_machine.get_inventory_soda('Orange Soda')
-        self.soda_inventory_three = self.my_soda_machine.get_inventory_soda('Root Beer')
+        self.cola = Cola()
+        self.orange_soda = OrangeSoda()
+        self.root_beer = RootBeer()
+        self.soda_inventory_one = self.my_soda_machine.get_inventory_soda(self.cola.name)
+        self.soda_inventory_two = self.my_soda_machine.get_inventory_soda(self.orange_soda.name)
+        self.soda_inventory_three = self.my_soda_machine.get_inventory_soda(self.root_beer.name)
         self.assertEqual(self.soda_inventory_one.name, "Cola")
         self.assertEqual(self.soda_inventory_two.name, "Orange Soda")
         self.assertEqual(self.soda_inventory_three.name, "Root Beer")
