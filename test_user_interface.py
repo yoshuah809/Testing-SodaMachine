@@ -93,7 +93,35 @@ class TestUserInterface(unittest.TestCase):
         returned_value = user_interface.display_payment_value(self.wallet)
         self.assertEqual(returned_value, 0)
 
-        
+    def test_validate_coin_selection_a(self):
+        """validate that input 1 will return the right tuple"""
+        returned_value = user_interface.validate_coin_selection(1)
+        self.assertEqual(returned_value, (True, "Quarter"))
+
+    def test_validate_coin_selection_b(self):
+        """validate that input 2 will return the right tuple"""
+        returned_value = user_interface.validate_coin_selection(2)
+        self.assertEqual(returned_value, (True, "Dime"))
+
+    def test_validate_coin_selection_c(self):
+        """validate that input 3 will return the right tuple"""
+        returned_value = user_interface.validate_coin_selection(3)
+        self.assertEqual(returned_value, (True, "Nickel"))
+
+    def test_validate_coin_selection_d(self):
+        """validate that input 4 will return the right tuple"""
+        returned_value = user_interface.validate_coin_selection(4)
+        self.assertEqual(returned_value, (True, "Penny"))
+
+    def test_validate_coin_selection_e(self):
+        """validate that input 5 will return the right tuple"""
+        returned_value = user_interface.validate_coin_selection(5)
+        self.assertEqual(returned_value, (True, "Done"))
+    
+    def test_validate_coin_selection_f(self):
+        """validate that different input  will return False, None tuple"""
+        returned_value = user_interface.validate_coin_selection(6)
+        self.assertEqual(returned_value, (False, None))       
 
 if __name__ == "__main__":
     unittest.main()
