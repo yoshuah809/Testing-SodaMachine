@@ -3,7 +3,7 @@ import user_interface
 from cans import Cola, OrangeSoda, RootBeer
 from coins import Quarter, Dime, Nickel, Penny
 
-class TestUserInterface(unittest.TestCase):
+class TestValidateMainMenu(unittest.TestCase):
     
     def test_validate_main_menu(self):
         """Validating if passing 1 tupple (True, number) will be returned"""
@@ -30,6 +30,9 @@ class TestUserInterface(unittest.TestCase):
         returned_value = user_interface.validate_main_menu(5)
         self.assertEqual(returned_value, (False, None)) 
 
+
+class TestTryParseInt(unittest.TestCase):
+
     def test_try_parse_int(self):
         """Testing '10', needs to return int value 10"""
         returned_value = user_interface.try_parse_int('10')
@@ -40,6 +43,9 @@ class TestUserInterface(unittest.TestCase):
         """Tests 'hello', needs to return 0"""
         returned_value = user_interface.try_parse_int('hello')
         self.assertEqual(returned_value, 0)
+
+
+class TestGetUniqueCanNames(unittest.TestCase):
 
     def test_get_unique_can_names(self):
         """Tests list returns only 3 names in list."""
@@ -69,6 +75,9 @@ class TestUserInterface(unittest.TestCase):
         returned_value = user_interface.get_unique_can_names(self.my_soda)
         self.assertEqual(len(returned_value), 0)
 
+       
+class TestDisplayPaymentValue(unittest.TestCase):
+
     def test_display_payment_value(self):
         """Tests if returned value is .41"""
         self.quarter = Quarter()
@@ -93,6 +102,9 @@ class TestUserInterface(unittest.TestCase):
         returned_value = user_interface.display_payment_value(self.wallet)
         self.assertEqual(returned_value, 0)
 
+    
+class TestValidateCoinSelection(unittest.TestCase):
+        
     def test_validate_coin_selection_a(self):
         """validate that input 1 will return the right tuple"""
         returned_value = user_interface.validate_coin_selection(1)

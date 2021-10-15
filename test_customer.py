@@ -51,7 +51,7 @@ class TestAddCoinsToWallet(unittest.TestCase):
         self.assertEqual(len(self.customer.wallet.money), array_size + 3)
 
     def test_empty_wallet_add_coinst_to_wallet(self):  
-        """"Pass Empty walle, test that the len of the customer’s wallet’s money stays the same"""
+        """"Pass Empty wallet, test that the len of the customer’s wallet’s money stays the same"""
         array_size =  len(self.customer.wallet.money)  
         self.customer.add_coins_to_wallet([])
         self.assertEqual(len(self.customer.wallet.money), array_size)    
